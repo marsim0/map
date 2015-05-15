@@ -188,7 +188,7 @@
 }
 - (IBAction)buton_TableView:(id)sender {
     if (self.address_tableView.alpha == 0) {        
-        //[self reloadTableView];
+        [self reloadTableView];
         self.address_tableView.alpha = 1;
         
     } else {

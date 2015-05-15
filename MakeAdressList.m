@@ -10,19 +10,6 @@
 
 @implementation MakeAdressList
 
-//- (void) makeDictionaryOfZIP : (NSString *) zipString City : (NSString *) cityString Street : (NSString *) streetString  {
-//    
-//    self.addressArray = [[NSMutableArray alloc]init];
-//    self.addressDictionary = [[NSMutableDictionary alloc]init];
-//    
-//    for (int i = 0; i <= self.addressDictionary.count; i++) {
-//        [self.addressDictionary setObject: zipString forKey:@"ZIP"];
-//        [self.addressDictionary setObject: cityString forKey:@"City"];
-//        [self.addressDictionary setObject: streetString forKey:@"Street"];
-//        
-//        [self.addressArray addObject:self.addressDictionary];
-//    }
-//}
 
 - (void) makeAddressDictionary  {
     
@@ -42,10 +29,10 @@
 - (void) makeCoordinatesArray : (CLLocation*)location {
     self.coordinatesArray = [[NSMutableArray alloc] init];
     ViewController * v = [[ViewController alloc]init];
-    for (int i = 0; i < v.touchNumber+1; i++) {
-        [self.coordinatesArray setObject:location atIndexedSubscript:i];
+    
+    [self.coordinatesArray insertObject:location atIndex:v.touchNumber];
         
-    };
+    
 }
 
 - (CLLocation*)location : (int) i {
