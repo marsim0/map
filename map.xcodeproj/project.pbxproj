@@ -15,6 +15,11 @@
 		0D033AB51B03592500B9EBA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D033AB41B03592500B9EBA5 /* Images.xcassets */; };
 		0D033AB81B03592500B9EBA5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D033AB61B03592500B9EBA5 /* LaunchScreen.xib */; };
 		0D033AC41B03592500B9EBA5 /* mapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D033AC31B03592500B9EBA5 /* mapTests.m */; };
+		0D033ACE1B035B2A00B9EBA5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */; };
+		0D033AD01B035B3B00B9EBA5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */; };
+		0D74AB1B1B04AB4600FF95E0 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */; };
+		0D74AB271B04B53200FF95E0 /* MakeAdressList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D74AB261B04B53200FF95E0 /* MakeAdressList.m */; };
+		0DC000F31B03E88900979591 /* pin_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC000F21B03E88900979591 /* pin_map.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,13 @@
 		0D033ABD1B03592500B9EBA5 /* mapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D033AC21B03592500B9EBA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D033AC31B03592500B9EBA5 /* mapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mapTests.m; sourceTree = "<group>"; };
+		0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
+		0D74AB251B04B53200FF95E0 /* MakeAdressList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeAdressList.h; sourceTree = "<group>"; };
+		0D74AB261B04B53200FF95E0 /* MakeAdressList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeAdressList.m; sourceTree = "<group>"; };
+		0DC000F21B03E88900979591 /* pin_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_map.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D033AD01B035B3B00B9EBA5 /* CoreLocation.framework in Frameworks */,
+				0D033ACE1B035B2A00B9EBA5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +79,13 @@
 		0D033A981B03592400B9EBA5 = {
 			isa = PBXGroup;
 			children = (
+				0D74AB251B04B53200FF95E0 /* MakeAdressList.h */,
+				0D74AB261B04B53200FF95E0 /* MakeAdressList.m */,
+				0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */,
+				0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */,
+				0DC000F21B03E88900979591 /* pin_map.png */,
+				0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */,
+				0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */,
 				0D033AA31B03592500B9EBA5 /* map */,
 				0D033AC01B03592500B9EBA5 /* mapTests */,
 				0D033AA21B03592500B9EBA5 /* Products */,
@@ -205,6 +226,7 @@
 				0D033AB31B03592500B9EBA5 /* Main.storyboard in Resources */,
 				0D033AB81B03592500B9EBA5 /* LaunchScreen.xib in Resources */,
 				0D033AB51B03592500B9EBA5 /* Images.xcassets in Resources */,
+				0DC000F31B03E88900979591 /* pin_map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +247,8 @@
 				0D033AAD1B03592500B9EBA5 /* map.xcdatamodeld in Sources */,
 				0D033AAA1B03592500B9EBA5 /* AppDelegate.m in Sources */,
 				0D033AB01B03592500B9EBA5 /* ViewController.m in Sources */,
+				0D74AB271B04B53200FF95E0 /* MakeAdressList.m in Sources */,
+				0D74AB1B1B04AB4600FF95E0 /* AddressTableViewCell.m in Sources */,
 				0D033AA71B03592500B9EBA5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +446,7 @@
 				0D033AC91B03592500B9EBA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D033ACA1B03592500B9EBA5 /* Build configuration list for PBXNativeTarget "mapTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +455,7 @@
 				0D033ACC1B03592500B9EBA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
