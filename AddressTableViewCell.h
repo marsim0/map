@@ -10,8 +10,8 @@
 
 @interface AddressTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *ZIP_cellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *city_cellLabel;
-@property (weak, nonatomic) IBOutlet UILabel *street_cellLabel;
+@property (strong, nonatomic) IBOutlet UILabel *ZIP_cellLabel;
+@property (strong, nonatomic) IBOutlet UILabel *city_cellLabel;
+@property (strong, nonatomic) IBOutlet UILabel *street_cellLabel;
 
 @end

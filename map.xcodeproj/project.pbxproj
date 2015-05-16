@@ -49,11 +49,11 @@
 		0D033AC31B03592500B9EBA5 /* mapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mapTests.m; sourceTree = "<group>"; };
 		0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
-		0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
-		0D74AB251B04B53200FF95E0 /* MakeAdressList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeAdressList.h; sourceTree = "<group>"; };
-		0D74AB261B04B53200FF95E0 /* MakeAdressList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeAdressList.m; sourceTree = "<group>"; };
-		0DC000F21B03E88900979591 /* pin_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_map.png; sourceTree = "<group>"; };
+		0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressTableViewCell.h; path = ../AddressTableViewCell.h; sourceTree = "<group>"; };
+		0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressTableViewCell.m; path = ../AddressTableViewCell.m; sourceTree = "<group>"; };
+		0D74AB251B04B53200FF95E0 /* MakeAdressList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MakeAdressList.h; path = ../MakeAdressList.h; sourceTree = "<group>"; };
+		0D74AB261B04B53200FF95E0 /* MakeAdressList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MakeAdressList.m; path = ../MakeAdressList.m; sourceTree = "<group>"; };
+		0DC000F21B03E88900979591 /* pin_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_map.png; path = ../pin_map.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +79,6 @@
 		0D033A981B03592400B9EBA5 = {
 			isa = PBXGroup;
 			children = (
-				0D74AB251B04B53200FF95E0 /* MakeAdressList.h */,
-				0D74AB261B04B53200FF95E0 /* MakeAdressList.m */,
-				0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */,
-				0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */,
-				0DC000F21B03E88900979591 /* pin_map.png */,
 				0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */,
 				0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */,
 				0D033AA31B03592500B9EBA5 /* map */,
@@ -104,6 +99,11 @@
 		0D033AA31B03592500B9EBA5 /* map */ = {
 			isa = PBXGroup;
 			children = (
+				0D74AB251B04B53200FF95E0 /* MakeAdressList.h */,
+				0D74AB261B04B53200FF95E0 /* MakeAdressList.m */,
+				0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */,
+				0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */,
+				0DC000F21B03E88900979591 /* pin_map.png */,
 				0D033AA81B03592500B9EBA5 /* AppDelegate.h */,
 				0D033AA91B03592500B9EBA5 /* AppDelegate.m */,
 				0D033AAE1B03592500B9EBA5 /* ViewController.h */,
