@@ -18,8 +18,9 @@
 		0D033ACE1B035B2A00B9EBA5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D033ACD1B035B2A00B9EBA5 /* MapKit.framework */; };
 		0D033AD01B035B3B00B9EBA5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */; };
 		0D74AB1B1B04AB4600FF95E0 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */; };
-		0D74AB271B04B53200FF95E0 /* MakeAdressList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D74AB261B04B53200FF95E0 /* MakeAdressList.m */; };
 		0DC000F31B03E88900979591 /* pin_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC000F21B03E88900979591 /* pin_map.png */; };
+		0DE3389B1B08E3E500F846F2 /* SingleTone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3389A1B08E3E500F846F2 /* SingleTone.m */; };
+		0DE338A11B08FB2E00F846F2 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE338A01B08FB2E00F846F2 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +52,11 @@
 		0D033ACF1B035B3B00B9EBA5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressTableViewCell.h; path = ../AddressTableViewCell.h; sourceTree = "<group>"; };
 		0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressTableViewCell.m; path = ../AddressTableViewCell.m; sourceTree = "<group>"; };
-		0D74AB251B04B53200FF95E0 /* MakeAdressList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MakeAdressList.h; path = ../MakeAdressList.h; sourceTree = "<group>"; };
-		0D74AB261B04B53200FF95E0 /* MakeAdressList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MakeAdressList.m; path = ../MakeAdressList.m; sourceTree = "<group>"; };
 		0DC000F21B03E88900979591 /* pin_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_map.png; path = ../pin_map.png; sourceTree = "<group>"; };
+		0DE338991B08E3E500F846F2 /* SingleTone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleTone.h; path = ../SingleTone.h; sourceTree = "<group>"; };
+		0DE3389A1B08E3E500F846F2 /* SingleTone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleTone.m; path = ../SingleTone.m; sourceTree = "<group>"; };
+		0DE3389F1B08FB2E00F846F2 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ../SecondViewController.h; sourceTree = "<group>"; };
+		0DE338A01B08FB2E00F846F2 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = ../SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +102,10 @@
 		0D033AA31B03592500B9EBA5 /* map */ = {
 			isa = PBXGroup;
 			children = (
-				0D74AB251B04B53200FF95E0 /* MakeAdressList.h */,
-				0D74AB261B04B53200FF95E0 /* MakeAdressList.m */,
+				0DE3389F1B08FB2E00F846F2 /* SecondViewController.h */,
+				0DE338A01B08FB2E00F846F2 /* SecondViewController.m */,
+				0DE338991B08E3E500F846F2 /* SingleTone.h */,
+				0DE3389A1B08E3E500F846F2 /* SingleTone.m */,
 				0D74AB191B04AB4600FF95E0 /* AddressTableViewCell.h */,
 				0D74AB1A1B04AB4600FF95E0 /* AddressTableViewCell.m */,
 				0DC000F21B03E88900979591 /* pin_map.png */,
@@ -246,8 +251,9 @@
 			files = (
 				0D033AAD1B03592500B9EBA5 /* map.xcdatamodeld in Sources */,
 				0D033AAA1B03592500B9EBA5 /* AppDelegate.m in Sources */,
+				0DE3389B1B08E3E500F846F2 /* SingleTone.m in Sources */,
 				0D033AB01B03592500B9EBA5 /* ViewController.m in Sources */,
-				0D74AB271B04B53200FF95E0 /* MakeAdressList.m in Sources */,
+				0DE338A11B08FB2E00F846F2 /* SecondViewController.m in Sources */,
 				0D74AB1B1B04AB4600FF95E0 /* AddressTableViewCell.m in Sources */,
 				0D033AA71B03592500B9EBA5 /* main.m in Sources */,
 			);

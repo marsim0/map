@@ -11,11 +11,13 @@
 @interface ViewController () {
     BOOL isCurrentLocation;
 }
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MKMapView * mapView;
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) NSString * addressString;
-@property (strong,nonatomic) NSMutableArray * addressArray;
-@property (strong,nonatomic) NSMutableDictionary * addressDictionary;
+@property (strong, nonatomic) NSMutableArray * addressArray;
+@property (strong, nonatomic) SingleTone * addressSingle ;
+
+@property (weak, nonatomic) IBOutlet UILabel *addedAddress_lable;
 
 @end
 
@@ -32,9 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.addressArray = [[NSMutableArray alloc] init];
-    self.address_tableView.alpha = 0;
+    self.addedAddress_lable.alpha = 0;
+    self.addressSingle = [SingleTone sharedSingleTone];
+    self.addressArray = [[NSMutableArray alloc] init];    
     isCurrentLocation = NO;
     self.mapView.showsUserLocation = YES;
     self.locationManager = [[CLLocationManager alloc] init];
@@ -44,6 +46,7 @@
     if (!isFirstLaunch) {
         [self firstLaunch];
     }
+    self.addressSingle = [SingleTone sharedSingleTone];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -63,6 +66,8 @@
          MKAnnotationView * annView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"Annotation"];
         annView.canShowCallout = NO;
         annView.image = [UIImage imageNamed:@"pin_map"];
+        //annView.tag = 2000;
+        //annView.alpha = 0;
         [annView addSubview:[self getCalloutView:annotation.title]];
         return annView;
     }
@@ -104,38 +109,14 @@
 
 }
 
-- (void) reloadTableView {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.address_tableView reloadData];
-    });
-}
-
-#pragma mark - UITableViewDataSource
-
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    AddressTableViewCell * addressCell = [tableView dequeueReusableCellWithIdentifier: @"AddressCell"];
-   
-    addressCell.ZIP_cellLabel.text = [[self.addressArray objectAtIndex:indexPath.row]valueForKey:@"ZIP"];
-    addressCell.city_cellLabel.text = [[self.addressArray objectAtIndex:indexPath.row]valueForKey:@"City"];
-    addressCell.street_cellLabel.text = [[self.addressArray objectAtIndex:indexPath.row]valueForKey:@"Street"];
-    
-    return addressCell;
-}
-
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.addressArray.count;
-    
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CLLocation * centerLocation = [[self.addressArray valueForKey:@"Location" ] objectAtIndex:indexPath.row];
-    MKCoordinateRegion addressRegion = MKCoordinateRegionMakeWithDistance(centerLocation.coordinate, 500, 500);
-    [self.mapView setRegion:addressRegion animated:YES];
-    
+- (void) lableAnimation : (int) alpha View : (UIView*) view {
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [animation setFillMode:kCAFillModeBoth];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [view.layer addAnimation:animation forKey:@"Fade"];
+    view.alpha = alpha;
 }
 
 #pragma mark - MKMapViewDelegate
@@ -161,43 +142,45 @@
 #pragma mark - IBActions
 
 - (IBAction)handleLongPress:(UILongPressGestureRecognizer*)sender {
-    if (sender.state == UIGestureRecognizerStateBegan) {        
+    
+    if (sender.state == UIGestureRecognizerStateBegan) {
         
         CLLocationCoordinate2D coordinateScreenPoint = [self.mapView convertPoint:[sender locationInView:self.mapView] toCoordinateFromView:self.mapView];
         CLLocation * tapLocation = [[CLLocation alloc]initWithLatitude:coordinateScreenPoint.latitude longitude:coordinateScreenPoint.longitude];
         
         CLGeocoder * geocoder = [[CLGeocoder alloc]init];
+        
         [geocoder reverseGeocodeLocation:tapLocation completionHandler:^(NSArray *placemarks, NSError *error) {
             CLPlacemark * place = [placemarks objectAtIndex:0];
+
+            __block NSMutableDictionary * addressDict = [[NSMutableDictionary alloc] init];
             
-            self.addressString = [NSString stringWithFormat:@"Город %@ \n Улица %@ \n Индекс %@", [place.addressDictionary valueForKey:@"City"],[place.addressDictionary valueForKey:@"Street"],[place.addressDictionary valueForKey:@"ZIP"]];
+            void (^blockWithAddressArguments)(NSString*, NSString*, NSString*,CLLocation*) = ^(NSString * stringZIP, NSString * stringCity, NSString * stringStreet, CLLocation * location) {
+                
+                [addressDict setObject: stringZIP forKey:@"ZIP"];
+                [addressDict setObject: stringCity forKey:@"City"];
+                [addressDict setObject: stringStreet forKey:@"Street"];
+                [addressDict setObject:location forKey:@"Location"];
+
+            };
             
-            MKPointAnnotation * annotation = [[MKPointAnnotation alloc]init];
-            annotation.title = self.addressString;
-            annotation.coordinate = coordinateScreenPoint;
-            [self.mapView addAnnotation:annotation];
+            blockWithAddressArguments ([place.addressDictionary valueForKey:@"ZIP"], [place.addressDictionary valueForKey:@"City"],[place.addressDictionary valueForKey:@"Street"], tapLocation);
             
-            self.addressDictionary = [[NSMutableDictionary alloc] init];
-            [self.addressDictionary setObject: [place.addressDictionary valueForKey:@"ZIP"] forKey:@"ZIP"];
-            [self.addressDictionary setObject: [place.addressDictionary valueForKey:@"City"] forKey:@"City"];
-            [self.addressDictionary setObject: [place.addressDictionary valueForKey:@"Street"] forKey:@"Street"];
-            [self.addressDictionary setObject:tapLocation forKey:@"Location"];
+            [self.addressSingle makeAddressArray];
+            [self.addressSingle.addressArray addObject:addressDict];
             
-            [self.addressArray addObject:self.addressDictionary];
         }];
-    }    
+    }
+    [self lableAnimation:1 View:self.addedAddress_lable];
+    [self lableAnimation:0 View:self.addedAddress_lable];
 }
 
 
+
+
 - (IBAction)buton_TableView:(id)sender {
-    
-    if (self.address_tableView.alpha == 0) {
-        [self reloadTableView];
-        self.address_tableView.alpha = 1;
-    } else {
-        self.address_tableView.alpha = 0;
-    }
-    
+    SecondViewController * addressViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondView"];
+    [self.navigationController pushViewController: addressViewCtrl animated:YES];
 }
 
 @end

@@ -10,13 +10,14 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "AddressTableViewCell.h"
-//#import "MakeAdressList.h"
+#import "SingleTone.h"
+#import "SecondViewController.h"
 
-@interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
+@interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate>
 
 - (IBAction)handleLongPress:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UITableView *address_tableView;
+
 - (IBAction)buton_TableView:(id)sender;
 
 
