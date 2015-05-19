@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8C7C141D-E40E-4DFB-8C5A-E69E6E140850</string>
 	<key>IDESourceControlProjectName</key>
-	<string>map</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D2682A9E4550B83E57DEE9EE8805B55564034671</key>
 		<string>https://github.com/marsim0/map.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>map.xcodeproj</string>
+	<string>map.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D2682A9E4550B83E57DEE9EE8805B55564034671</key>

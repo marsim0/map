@@ -21,7 +21,7 @@
     return singleToneObject;
 }
 
-- (void) makeAddressArray /*OfZIP : (NSString *) ZIP City : (NSString *) City Street : (NSString *) Street */{
+- (void) makeAddressArray {
     
     self.addressArray = [[NSMutableArray alloc] init];
 }

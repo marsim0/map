@@ -13,9 +13,7 @@
 }
 @property (weak, nonatomic) IBOutlet MKMapView * mapView;
 @property (strong, nonatomic) CLLocationManager * locationManager;
-@property (strong, nonatomic) NSMutableArray * addressArray;
 @property (strong, nonatomic) SingleTone * addressSingle ;
-
 @property (weak, nonatomic) IBOutlet UILabel *addedAddress_lable;
 
 @end
@@ -35,7 +33,7 @@
     [super viewDidLoad];
     self.addedAddress_lable.alpha = 0;
     self.addressSingle = [SingleTone sharedSingleTone];
-    self.addressArray = [[NSMutableArray alloc] init];    
+    [self.addressSingle makeAddressArray];
     isCurrentLocation = NO;
     self.mapView.showsUserLocation = YES;
     self.locationManager = [[CLLocationManager alloc] init];
@@ -45,6 +43,7 @@
     if (!isFirstLaunch) {
         [self firstLaunch];
     }
+    
     self.addressSingle = [SingleTone sharedSingleTone];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -108,7 +107,7 @@
 - (void) lableAnimation : (int) alpha View : (UIView*) view {
     CATransition * animation = [CATransition animation];
     animation.type = kCATransitionFade;
-    animation.duration = 0.3;
+    animation.duration = 0.5;
     [animation setFillMode:kCAFillModeBoth];
     [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
     [view.layer addAnimation:animation forKey:@"Fade"];
@@ -162,13 +161,18 @@
             
             blockWithAddressArguments ([place.addressDictionary valueForKey:@"ZIP"], [place.addressDictionary valueForKey:@"City"],[place.addressDictionary valueForKey:@"Street"], tapLocation);
             
-            [self.addressSingle makeAddressArray];
             [self.addressSingle.addressArray addObject:addressDict];
             
         }];
+        
+        [self lableAnimation:1 View:self.addedAddress_lable];
+        
     }
-    [self lableAnimation:1 View:self.addedAddress_lable];
+    else {
+        
     [self lableAnimation:0 View:self.addedAddress_lable];
+        
+    }
 
 }
 

@@ -33,6 +33,7 @@
     
     self.addressSingle = [SingleTone sharedSingleTone];
     [self addAnotations];
+    [self reloadTableView];
 
     // Do any additional setup after loading the view.
 }
