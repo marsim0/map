@@ -68,7 +68,6 @@
         [annView addSubview:[self getCalloutView:annotation.title]];
         return annView;
     }
-   
     return nil;
 }
 
@@ -172,8 +171,5 @@
     [self lableAnimation:0 View:self.addedAddress_lable];
 
 }
-
-
-
 
 @end
