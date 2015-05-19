@@ -15,10 +15,12 @@
 
 @interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate>
 
-- (IBAction)handleLongPress:(id)sender;
+
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender;
 
 
-- (IBAction)buton_TableView:(id)sender;
+
+
 
 
 @end

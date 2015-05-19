@@ -66,8 +66,6 @@
          MKAnnotationView * annView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"Annotation"];
         annView.canShowCallout = NO;
         annView.image = [UIImage imageNamed:@"pin_map"];
-        //annView.tag = 2000;
-        //annView.alpha = 0;
         [annView addSubview:[self getCalloutView:annotation.title]];
         return annView;
     }
@@ -141,8 +139,8 @@
 
 #pragma mark - IBActions
 
-- (IBAction)handleLongPress:(UILongPressGestureRecognizer*)sender {
-    
+
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         
         CLLocationCoordinate2D coordinateScreenPoint = [self.mapView convertPoint:[sender locationInView:self.mapView] toCoordinateFromView:self.mapView];
@@ -152,7 +150,7 @@
         
         [geocoder reverseGeocodeLocation:tapLocation completionHandler:^(NSArray *placemarks, NSError *error) {
             CLPlacemark * place = [placemarks objectAtIndex:0];
-
+            
             __block NSMutableDictionary * addressDict = [[NSMutableDictionary alloc] init];
             
             void (^blockWithAddressArguments)(NSString*, NSString*, NSString*,CLLocation*) = ^(NSString * stringZIP, NSString * stringCity, NSString * stringStreet, CLLocation * location) {
@@ -161,7 +159,7 @@
                 [addressDict setObject: stringCity forKey:@"City"];
                 [addressDict setObject: stringStreet forKey:@"Street"];
                 [addressDict setObject:location forKey:@"Location"];
-
+                
             };
             
             blockWithAddressArguments ([place.addressDictionary valueForKey:@"ZIP"], [place.addressDictionary valueForKey:@"City"],[place.addressDictionary valueForKey:@"Street"], tapLocation);
@@ -173,14 +171,10 @@
     }
     [self lableAnimation:1 View:self.addedAddress_lable];
     [self lableAnimation:0 View:self.addedAddress_lable];
+
 }
 
 
 
-
-- (IBAction)buton_TableView:(id)sender {
-    SecondViewController * addressViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondView"];
-    [self.navigationController pushViewController: addressViewCtrl animated:YES];
-}
 
 @end

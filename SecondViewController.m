@@ -17,9 +17,6 @@
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (weak, nonatomic) IBOutlet UITableView *address_tableView;
 @property (strong, nonatomic) NSString * addressString;
-- (IBAction)back_Action:(id)sender;
-
-
 
 @end
 
@@ -148,7 +145,4 @@
 }
 
 
-- (IBAction)back_Action:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 @end
