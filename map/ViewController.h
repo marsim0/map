@@ -15,13 +15,7 @@
 
 @interface ViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate>
 
-
 - (IBAction)handleLongPress:(UILongPressGestureRecognizer *)sender;
-
-
-
-
-
 
 @end
 
